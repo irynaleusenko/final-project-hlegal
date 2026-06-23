@@ -1,0 +1,94 @@
+.footer {
+  padding: 30px 0;
+  background-color: #F5F5FA;
+  border-top: 2px solid #E6E6F0; // Разделительная черта сверху футера
+
+  &__container {
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  // Первая строка: адрес и карта
+  &__address {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    color: #323264;
+    margin-bottom: 10px;
+  }
+
+  &__map-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #24A3FF;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-bottom: 21px;
+
+    &:hover {
+      color: #0085FF;
+    }
+  }
+
+  // Вторая строка: иконка соцсети
+  &__social-link {
+    display: inline-block;
+    margin-bottom: 10px; // Отступ перед контактами
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    svg {
+      display: block;
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  // Третья строка: телефон и почта
+  &__phone {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #46466E;
+    text-decoration: none;
+    margin-bottom: 10px;
+
+    &:hover {
+      color: #24A3FF;
+    }
+  }
+
+  &__email {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #24A3FF;
+    text-decoration: none;
+    margin-bottom: 30px; // Отступ перед копирайтом
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Четвертая строка: копирайт
+  &__copyright {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #B3B3BA;
+    margin: 0;
+  }
+}

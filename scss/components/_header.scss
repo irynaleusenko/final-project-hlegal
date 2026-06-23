@@ -1,0 +1,279 @@
+/* СТИЛИ ШАПКИ САЙТА (СТРОГО MOBILE-FIRST ПОД МАКЕТ) */
+.header {
+  width: 100%;
+  padding-top: 0;
+  position: relative;
+  z-index: 10;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Верхняя серая панель */
+  &__top-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F5F5FA;
+    margin: 0 -30px; /* Идеально компенсирует боковые отступы контейнера в 30px */
+    padding: 10px 30px;
+  }
+
+  &__languages {
+    display: flex;
+    gap: 6px;
+  }
+
+  &__lang {
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    color: #B3B3BA;
+    padding: 5px 7px;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &--active {
+      background: #F0145A;
+      color: #FFFFFF;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__phone {
+    font-size: 12px;
+    font-weight: 700;
+    color: #B3B3BA;
+    text-decoration: none;
+  }
+
+  &__address {
+    display: none; /* Скрыто на мобильном 375px по макету */
+  }
+
+  /* Нижний основной ряд */
+  &__main-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0 30px;
+  }
+
+.header__logo-block {
+  display: flex;
+  align-items: center; /* Центрирует логотип, слэш и текст по одной горизонтальной оси */
+  gap: 4px;
+
+  .header__logo {
+    display: inline-flex; /* Использовать inline-flex вместо inline, чтобы убрать скрытые нижние отступы картинок */
+    align-items: center;
+    flex-shrink: 0;
+
+    svg {
+      height: 32px;  /* Точная высота из Фигмы */
+      width: auto;
+      display: block;
+    }
+  }
+
+  .header__slash {
+    color: #f0145a;
+    font-size: 24px;
+    line-height: 1; /* Жестко сбрасываем высоту строки, чтобы слэш не улетал вверх */
+    margin: 0 4px;
+    display: inline-block;
+  }
+
+  .header__page-title {
+    font-size: 20px;
+    color: #323264;
+    text-transform: lowercase;
+    line-height: 1; /* Выравнивает текст по центру */
+  }
+}
+  /* БУРГЕР И ЛОГИКА ОТКРЫТИЯ МЕНЮ */
+  &__burger-wrapper {
+    display: block;
+    position: relative;
+  }
+
+  &__burger-checkbox {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+
+    /* Открытие полноэкранного окна при клике */
+    &:checked ~ .header__mobile-menu {
+      display: block;
+    }
+  }
+
+  /* Кнопка три полоски (Прозрачная, серая при ховере) */
+  &__burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    background: transparent; 
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #E6E6F0; /* Цвет --Grey-Bg-Alt из Фигмы */
+    }
+  }
+
+  /* Полноэкранное мобильное меню (Сверху вниз, перекрывает контент) */
+  &__mobile-menu {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100vw; 
+    height: 100vh;
+    background-color: rgba(50, 50, 100, 0.6);
+    z-index: 99999; /* Поверх абсолютно всего */
+  }
+
+  /* Белая плашка-контейнер для пунктов меню */
+  &__mobile-box {
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 0 0 12px 12px; /* Скругления углов снизу плашки */
+    padding: 64px 30px 24px 30px; /* Отступы по 30px слева и справа */
+    position: relative;
+    box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Крестик закрытия меню */
+  &__mobile-close {
+    cursor: pointer;
+    position: absolute;
+    top: 16px; 
+    right: 16px; /* Фиксированное положение крестика */
+    width: 32px; 
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #E6E6F0;
+    }
+  }
+
+  &__mobile-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Кнопки-ссылки внутри меню */
+  &__mobile-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.2;
+    color: #24A3FF;
+    background: #F5F5FA;
+    padding: 12px 0;
+    border-radius: 12px;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: #E6E6F0;
+      color: #0085FF;
+    }
+
+    &--active {
+      color: #F0145A;
+      background: #F5F5FA;
+      
+      &:hover {
+        background: #E6E6F0;
+        color: #F0145A;
+      }
+    }
+  }
+}
+
+.header {
+&__address {
+    display: none;
+}
+
+  &__fb-link {
+    display: none;
+  }
+  &__nav {
+    display: none;
+  }
+}
+   
+
+  // На планшетах и десктопах (от 768px) возвращаем их и оформляем
+  @media (min-width: 768px) {
+    &__top-panel {
+      display: flex;
+      align-items: center;
+      gap: 6px; // Небольшой отступ между элементами панели
+    }
+
+    &__address {
+      display: inline-block;
+      color: #B3B3BA;
+      font-size: 16px;
+      font-weight: 400;
+
+      // Создаем круглую точку перед адресом, как в макете
+      &::before {
+        content: "•";
+        color: #B3B3BA;
+        margin-right: 6px;
+      }
+    }
+
+    &__fb-link {
+      display: inline-flex;
+      align-items: center;
+
+      &::before {
+        content: "•";
+        color: #B3B3BA;
+        margin-right: 6px;
+      }
+
+      svg path {
+        transition: fill 0.2s ease;
+      }
+
+      &:hover svg path {
+        fill: #24A3FF; // Цвет при наведении
+      }
+    }
+
+    &__phone {
+      &::before {
+        content: "•";
+        color: #B3B3BA;
+        margin-right: 6px;
+      }
+    }
+  }

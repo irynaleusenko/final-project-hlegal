@@ -1,0 +1,33 @@
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/typography';
+
+@import "components/header";
+@import "components/buttons";
+@import "components/footer";
+@import "components/about"; 
+
+/* Полный сброс стилей */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #FFFFFF;
+  color: #323264;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ограничивающий контейнер под 375px с твоими отступами */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 30px; /* ИСПРАВЛЕНО: падинг по бокам теперь 30px */
+}
+
+

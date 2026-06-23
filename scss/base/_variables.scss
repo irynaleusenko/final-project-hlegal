@@ -1,0 +1,26 @@
+:root {
+    /* Main */
+    --color-main: #323264;
+    --color-main-alt: #46467E;
+    --color-main-soft: #666699;
+
+    /* Accent */
+    --color-accent: #F0145A;
+
+    /* Active */
+    --color-active: #24A3FF;
+    --color-active-hover: #0085FF;
+    --color-active-dark: #0066CC;
+
+    /* Grey */
+    --color-grey-bg: #F5F5FA;
+    --color-grey-bg-alt: #EDEDF7;
+    --color-grey-text: #B3B3BA;
+    --color-grey-separator: #E6E6F0;
+
+    /* Градиенты */
+    --gradient-main: linear-gradient(135deg, #323264 0%, #F0145A 100%);
+
+    /* ----- ШРИФТЫ (Fonts) ----- */
+    --font-main: 'Montserrat', sans-serif;
+}

@@ -1,0 +1,230 @@
+/* ==========================================================================
+   БЛОК С ЦИФРАМИ И ДОСТИЖЕНИЯМИ (ДО ФОТО)
+   ========================================================================== */
+.about-intro {
+  width: 100%;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #F0145A;
+    margin-bottom: 28px;
+  }
+
+  &__description {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #000000;
+  }
+}
+.about-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;                      // Аккуратный отступ между блоками цифр
+  margin-bottom: 30px;   
+  margin-top: 30px;
+  
+  border-left: 4px solid #E6E6F0; // Серая вертикальная линия слева
+  padding-left: 30px;             // Уменьшенный отступ от линии до контента
+  width: 100%;               
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  // Ставит иконку и число строго на один уровень (горизонтально)
+  &__header {
+    display: flex;
+    align-items: center;          // Выравнивание SVG и цифры строго по центру
+    gap: 10px;                    // Небольшой шаг между иконкой и числом
+    margin-bottom: 8px;           // Компактный отступ от цифры до текста описания
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg, img {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+  }
+
+  &__value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;              // Твой аккуратный размер шрифта для чисел
+    font-weight: 700;
+    line-height: 1;               // Сжимает высоту строки, чтобы выравнивание с SVG не съезжало
+    color: #F0145A;               
+  }
+
+  &__text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;              
+    font-weight: 400;
+    line-height: 1.35;
+    color: #323264;               
+  }
+}
+.about-team-banner {
+  position: relative;
+  
+  // Магия отрицательных отступов для компенсации паддингов контейнера:
+  margin-left: -30px; 
+  margin-right: -30px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__title {
+    position: absolute;
+    top: 50%;         // Сдвигаем на центр по вертикали
+    left: 50%;        // Сдвигаем на центр по горизонтали
+    transform: translate(-50%, -50%); // Идеально центрируем по осям
+    
+    // Стили шрифта строго из Figma:
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 13px; // Тот самый широкий интервал букв
+    line-height: normal;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    
+    // Полупрозрачность и тень из панели свойств макета:
+    opacity: 0.8;
+    text-shadow: 0px 15px 30px rgba(40, 40, 86, 0.80);
+  }
+}
+.main-content {
+  &__container {
+    margin: 0 auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+}
+
+.about-more {
+  display: flex;
+  flex-direction: column;        // Отступы по бокам 30px для мобилки
+  width: 100%;            // Ограничение по ширине мобильного экрана
+  box-sizing: border-box;
+  margin-top: 30px;
+
+  // Обычные абзацы текста (как выбранный на макете)
+  &__paragraph {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 19px;           // Из панели Typography на image_733f7c.jpg
+    font-weight: 400;          // Из панели Typography на image_733f7c.jpg
+    line-height: 30px;         // Ровно 30px из панели Typography
+    color: #000000;            // #000000 Basic/Black
+    margin-bottom: 30px;        // Отступ 30px снизу до следующего элемента/цитаты
+
+    &:last-child {
+      margin-bottom: 0;        // Убираем отступ у последнего абзаца
+    }
+  }
+
+  // Яркая красная цитата "Quality is what we care about..."
+  &__quote {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;           // Крупный акцентный размер
+    font-weight: 700;
+    line-height: 1.2;
+    color: #F0145A;            // Фирменный розово-красный
+            // Отступ 30px снизу
+  }
+}
+.achievements {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F5F5FA;     // Серый фон из Figma
+  
+  // Внутренние паддинги секции: по 30px сверху и снизу
+  padding: 30px 0;            
+  margin-top: 60px;              // Spacer 60px перед блоком
+  
+             // Фиксированная ширина мобильного экрана
+  margin-left: auto;             // Центрируем блок на экране
+  margin-right: auto;            //
+  box-sizing: border-box;
+
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;             
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--Main-Regular, #323264);            
+    text-transform: uppercase;   
+    margin: 0 0 30px 0;
+    text-align: center;
+  }
+
+  &__slider {
+    width: 255px;                // Ширина плашки из Figma
+    height: 110px;               // Истинная прямоугольная высота плашки на мобилке!
+    background-color: #FFFFFF;    
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;         // Центрируем логотип по вертикали
+    justify-content: center;     // Центрируем логотип по горизонтали
+    margin-bottom: 30px;         // Отступ 30px вниз до точек пагинации
+    box-sizing: border-box;
+  }
+
+  &__logo {
+    width: 53.33px !important;   // Четкие размеры логотипа из Figma
+    height: 40px !important;     
+    display: block;
+    flex-shrink: 0;              
+  }
+
+  /* Пагинация (Ровно 5 кружков под карточкой) */
+&__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;                   
+  }
+
+  &__dot {
+    width: 16px;                 
+    height: 16px;
+    border-radius: 50%;
+    background-color: #24A3FF;   
+    opacity: 0.2;                
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out; // Плавное мигание при наведении!
+
+    // ХАВЕР: работает СТРОГО ПРИ НАВЕДЕНИИ мышки
+    &:hover {
+      opacity: 1;                // Загорается синим, когда мышка сверху
+    }
+
+    &--active {
+      opacity: 1;                // Всегда горит синим
+      cursor: default;           // Меняем палец на обычную стрелку
+      pointer-events: none;      // Отключаем реакцию на наведение, он и так активен
+    }
+  }
+}
