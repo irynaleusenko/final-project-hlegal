@@ -1,94 +1,209 @@
 .footer {
+  background-color: $color-grey-bg;
   padding: 30px 0;
-  background-color: #F5F5FA;
-  border-top: 2px solid #E6E6F0; // Разделительная черта сверху футера
+  width: 100%;
+  border-top: 2px solid $color-grey-separator;
 
-  &__container {
-    max-width: 375px;
-    margin: 0 auto;
-    padding: 0 30px;
-    box-sizing: border-box;
+  &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 30px; 
   }
 
-  // Первая строка: адрес и карта
+  &__row {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 10px;
+  }
+
   &__address {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-regular;
     font-size: 16px;
-    font-weight: 400;
-    line-height: normal;
-    color: #323264;
-    margin-bottom: 10px;
+    color: $color-main-alt;
   }
 
   &__map-link {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-bold;
     font-size: 12px;
-    font-weight: 700;
     letter-spacing: 1px;
-    color: #24A3FF;
-    text-decoration: none;
     text-transform: uppercase;
-    margin-bottom: 21px;
+    color: $color-active;
+    text-decoration: none;
 
     &:hover {
-      color: #0085FF;
+      color: $color-active-hover;
     }
   }
 
-  // Вторая строка: иконка соцсети
-  &__social-link {
+  &__social {
     display: inline-block;
-    margin-bottom: 10px; // Отступ перед контактами
-    transition: opacity 0.2s ease;
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    svg {
+    
+    svg, img {
       display: block;
       width: 38px;
       height: 38px;
     }
   }
 
-  // Третья строка: телефон и почта
   &__phone {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-bold;
     font-size: 16px;
-    font-weight: 700;
-    color: #46466E;
+    color: $color-main;
     text-decoration: none;
-    margin-bottom: 10px;
-
-    &:hover {
-      color: #24A3FF;
-    }
   }
 
   &__email {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-bold;
     font-size: 16px;
-    font-weight: 700;
-    color: #24A3FF;
+    color: $color-active;
     text-decoration: none;
-    margin-bottom: 30px; // Отступ перед копирайтом
 
     &:hover {
       text-decoration: underline;
     }
   }
 
-  // Четвертая строка: копирайт
   &__copyright {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-regular;
     font-size: 16px;
-    font-weight: 400;
-    color: #B3B3BA;
+    color: $color-grey-text;
     margin: 0;
+    padding-top: 30px;
   }
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 30px 0;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;    
+      gap: 21px;              
+    }
+
+    &__row--top,
+    &__row--middle {
+      display: flex;
+      flex-direction: row;
+      align-items: center;    
+      flex-wrap: nowrap;      
+      gap: 10px;
+    }
+
+    &__social {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__map-link::before {
+      content: "•";
+      margin-right: 10px;
+      margin-left: 2px;
+      color: $color-grey-text;
+      font-size: 16px;
+      display: inline-block;
+    }
+
+    &__social + &__phone::before {
+      content: "•";
+      margin-right: 10px;
+      color: $color-grey-text;
+      font-size: 16px;
+      display: inline-block;
+    }
+
+    &__phone + &__email::before,
+    &__phone + a::before {
+      content: "•";
+      margin-right: 10px;
+      color: $color-grey-text;
+      font-size: 16px;
+      display: inline-block;
+    }
+
+    &__copyright {
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: 30px 60px;
+
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column; 
+      align-items: flex-start;
+      gap: 21px;              
+      text-align: left;
+    }
+
+    &__row--top,
+    &__row--middle {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__map-link::before {
+      content: "•";
+      margin-right: 10px;
+      color: $color-grey-text;
+      font-size: 16px;
+      display: inline-block;
+    }
+
+
+    &__copyright {
+      position: static;
+      text-align: right;
+      white-space: nowrap;   
+      padding-top: 0;
+      margin: 0;
+    }
+
+    &__social {
+      display: inline-flex;  
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__social + &__phone::before {
+      content: "•";
+      margin-right: 10px;
+      color: $color-grey-text;
+      font-size: 16px;
+      display: inline-block;
+    }
+
+    &__phone + &__email::before,
+    &__phone + a::before {
+      content: "•";
+      margin-right: 10px;
+      color: $color-grey-text;
+      font-size: 16px;
+      display: inline-block;
+    }
+  }
+}
+
+
+@media (min-width: 1920px) {
+ .footer {
+    padding: 30px 160px;
+ }
 }

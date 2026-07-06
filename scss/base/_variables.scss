@@ -1,26 +1,57 @@
+
+$color-white:#FFFFFF;
+$color-black:#000000;
+
+$color-main:#323264;
+$color-main-alt:#46467E;
+$color-main-soft:#666699;
+
+$color-accent:#F0145A;
+
+$color-active:#24A3FF;
+$color-active-hover:#0085FF;
+$color-active-dark:#0066CC;
+
+
+$color-grey-bg:#F5F5FA;
+$color-grey-bg-alt:#EDEDF7;
+$color-grey-text:#B3B3BA;
+$color-grey-separator:#E6E6F0;
+
+
+$font-regular:'Montserrat Regular', sans-serif;
+$font-medium:'Montserrat Medium', sans-serif;
+$font-bold:'Montserrat Bold', sans-serif;
+
+
+$gradient-main: linear-gradient(135deg, #323264 0%, #F0145A 100%); 
+
+$gradient-soft: linear-gradient(135deg, #46467E 0%, #F0145A 100%);
+
+$gradient-supersoft: linear-gradient(135deg, #323264 0%, #46467E 100%);
+
+$gradient-red-text: linear-gradient(90deg, #F0145A 0%, #EF145A 100%);
+
+$gradient-black-red: linear-gradient(135deg, $color-black 0%, $color-accent 100%);
+
+
 :root {
-    /* Main */
-    --color-main: #323264;
-    --color-main-alt: #46467E;
-    --color-main-soft: #666699;
-
-    /* Accent */
-    --color-accent: #F0145A;
-
-    /* Active */
-    --color-active: #24A3FF;
-    --color-active-hover: #0085FF;
-    --color-active-dark: #0066CC;
-
-    /* Grey */
-    --color-grey-bg: #F5F5FA;
-    --color-grey-bg-alt: #EDEDF7;
-    --color-grey-text: #B3B3BA;
-    --color-grey-separator: #E6E6F0;
-
-    /* Градиенты */
-    --gradient-main: linear-gradient(135deg, #323264 0%, #F0145A 100%);
-
-    /* ----- ШРИФТЫ (Fonts) ----- */
-    --font-main: 'Montserrat', sans-serif;
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+  --color-main: #{$color-main};
+  --color-main-alt: #{$color-main-alt};
+  --color-main-soft: #{$color-main-soft};
+  --color-accent: #{$color-accent};
+  --color-active: #{$color-active};
+  --color-grey-bg: #{$color-grey-bg};
+  --color-grey-text: #{$color-grey-text};
+  --color-grey-separator: #{$color-grey-separator};
+  --gradient-main: #{$gradient-main};
+  --gradient-soft: #{$gradient-soft};
+  --gradient-supersoft: #{$gradient-supersoft};
+  --gradient-red-text: #{$gradient-red-text};
+  --gradient-black-red: #{$gradient-black-red};
+  --font-regular: #{$font-regular};
+  --font-medium: #{$font-medium};
+  --font-bold: #{$font-bold};
 }

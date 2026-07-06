@@ -1,4 +1,5 @@
-/* СТИЛИ ШАПКИ САЙТА (СТРОГО MOBILE-FIRST ПОД МАКЕТ) */
+
+
 .header {
   width: 100%;
   padding-top: 0;
@@ -10,29 +11,25 @@
     flex-direction: column;
   }
 
-  /* Верхняя серая панель */
   &__top-panel {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #F5F5FA;
-    margin: 0 -30px; /* Идеально компенсирует боковые отступы контейнера в 30px */
+    background-color: $color-grey-bg;
     padding: 10px 30px;
   }
 
   &__languages {
     display: flex;
-    gap: 6px;
   }
 
   &__lang {
     background: transparent;
     border: none;
-    font-family: inherit;
     cursor: pointer;
     font-size: 12px;
-    font-weight: 700;
-    color: #B3B3BA;
+    font-family: $font-bold;
+    color: $color-grey-text;
     padding: 5px 7px;
     border-radius: 8px;
     letter-spacing: 1px;
@@ -40,70 +37,68 @@
 
     &:hover,
     &--active {
-      background: #F0145A;
-      color: #FFFFFF;
+      background: $color-accent;
+      color: $color-white;
     }
+  }
 
-    &:focus {
-      outline: none;
-    }
+  &__top-info {
+    display: flex;
+    align-items: center;
   }
 
   &__phone {
+    font-family: $font-bold;
     font-size: 12px;
-    font-weight: 700;
-    color: #B3B3BA;
+    color: $color-grey-text;
     text-decoration: none;
   }
 
-  &__address {
-    display: none; /* Скрыто на мобильном 375px по макету */
+  &__address,
+  &__fb-link {
+    display: none;
   }
 
-  /* Нижний основной ряд */
   &__main-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 0 30px;
+    padding: 15px 30px 30px;
   }
 
-.header__logo-block {
-  display: flex;
-  align-items: center; /* Центрирует логотип, слэш и текст по одной горизонтальной оси */
-  gap: 4px;
-
-  .header__logo {
-    display: inline-flex; /* Использовать inline-flex вместо inline, чтобы убрать скрытые нижние отступы картинок */
+  &__logo-block {
+    display: flex;
     align-items: center;
-    flex-shrink: 0;
+    gap: 4px;
 
-    svg {
-      height: 32px;  /* Точная высота из Фигмы */
+    .header__logo svg {
+      height: 32px;
       width: auto;
       display: block;
     }
+
+    .header__slash {
+      font-family: $font-regular;
+      color: $color-accent;
+      font-size: 24px;
+      line-height: 1;
+      margin: 0 4px;
+    }
+
+    .header__page-title {
+      font-family: $font-regular;
+      font-size: 20px;
+      color: $color-main;
+      text-transform: lowercase;
+    }
   }
 
-  .header__slash {
-    color: #f0145a;
-    font-size: 24px;
-    line-height: 1; /* Жестко сбрасываем высоту строки, чтобы слэш не улетал вверх */
-    margin: 0 4px;
-    display: inline-block;
+  &__nav {
+    display: none;
   }
 
-  .header__page-title {
-    font-size: 20px;
-    color: #323264;
-    text-transform: lowercase;
-    line-height: 1; /* Выравнивает текст по центру */
-  }
-}
-  /* БУРГЕР И ЛОГИКА ОТКРЫТИЯ МЕНЮ */
   &__burger-wrapper {
     display: block;
-    position: relative;
   }
 
   &__burger-checkbox {
@@ -112,13 +107,11 @@
     overflow: hidden;
     clip: rect(0 0 0 0);
 
-    /* Открытие полноэкранного окна при клике */
     &:checked ~ .header__mobile-menu {
       display: block;
     }
   }
 
-  /* Кнопка три полоски (Прозрачная, серая при ховере) */
   &__burger {
     display: flex;
     align-items: center;
@@ -126,54 +119,38 @@
     cursor: pointer;
     width: 32px;
     height: 32px;
-    background: transparent; 
-    border-radius: 8px;
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: #E6E6F0; /* Цвет --Grey-Bg-Alt из Фигмы */
+      background-color: $color-grey-separator;
     }
   }
 
-  /* Полноэкранное мобильное меню (Сверху вниз, перекрывает контент) */
   &__mobile-menu {
     display: none; 
     position: fixed; 
-    top: 0; 
-    left: 0;
-    width: 100vw; 
-    height: 100vh;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
     background-color: rgba(50, 50, 100, 0.6);
-    z-index: 99999; /* Поверх абсолютно всего */
+    z-index: 99999;
   }
 
-  /* Белая плашка-контейнер для пунктов меню */
   &__mobile-box {
     width: 100%;
-    background: #FFFFFF;
-    border-radius: 0 0 12px 12px; /* Скругления углов снизу плашки */
-    padding: 64px 30px 24px 30px; /* Отступы по 30px слева и справа */
+    background: $color-white;
+    border-radius: 0 0 12px 12px;
+    padding: 64px 30px 24px 30px;
     position: relative;
-    box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
   }
 
-  /* Крестик закрытия меню */
   &__mobile-close {
     cursor: pointer;
     position: absolute;
-    top: 16px; 
-    right: 16px; /* Фиксированное положение крестика */
-    width: 32px; 
-    height: 32px;
+    top: 16px; right: 16px;
+    width: 32px; height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background-color: #E6E6F0;
-    }
   }
 
   &__mobile-list {
@@ -183,70 +160,74 @@
     gap: 12px;
   }
 
-  /* Кнопки-ссылки внутри меню */
   &__mobile-link {
+    font-family: $font-bold;
     display: block;
     text-align: center;
     text-decoration: none;
-    font-weight: 700;
     font-size: 24px;
-    line-height: 1.2;
-    color: #24A3FF;
-    background: #F5F5FA;
+    color: $color-active;
+    background: $color-grey-bg;
     padding: 12px 0;
     border-radius: 12px;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 
     &:hover {
-      background: #E6E6F0;
-      color: #0085FF;
+      background-color: $color-accent;
+      color: $color-white;
     }
 
     &--active {
-      color: #F0145A;
-      background: #F5F5FA;
-      
-      &:hover {
-        background: #E6E6F0;
-        color: #F0145A;
-      }
+      color: $color-accent;
     }
   }
 }
 
-.header {
-&__address {
-    display: none;
-}
+@media (min-width: 768px) {
+  .header {
+    padding-top: 50px;
 
-  &__fb-link {
-    display: none;
-  }
-  &__nav {
-    display: none;
-  }
-}
-   
+    &__burger-wrapper {
+      display: none;
+    }
 
-  // На планшетах и десктопах (от 768px) возвращаем их и оформляем
-  @media (min-width: 768px) {
     &__top-panel {
-      display: flex;
-      align-items: center;
-      gap: 6px; // Небольшой отступ между элементами панели
+      justify-content: flex-start;
+      background-color: transparent;
+      margin: 0; 
+      padding: 0; 
     }
 
     &__address {
-      display: inline-block;
-      color: #B3B3BA;
+      font-family: $font-regular;
+      display: inline-flex;
+      align-items: center;
+      color: $color-grey-text;
       font-size: 16px;
-      font-weight: 400;
 
-      // Создаем круглую точку перед адресом, как в макете
       &::before {
         content: "•";
-        color: #B3B3BA;
-        margin-right: 6px;
+        margin: 0 6px;
+        font-family: $font-bold;
+      }
+    }
+
+    .container {
+      padding: 0 60px;
+    }
+
+    &__phone {
+      font-family: $font-bold;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      color: $color-grey-text;
+
+      &::before {
+        content: "•";
+        margin: 0 6px;
+        font-family: $font-bold;
+    
       }
     }
 
@@ -256,24 +237,202 @@
 
       &::before {
         content: "•";
-        color: #B3B3BA;
-        margin-right: 6px;
+        margin: 0 6px;
+        font-family: $font-bold;
+        color: $color-grey-text;
       }
 
       svg path {
-        transition: fill 0.2s ease;
+        fill: $color-grey-text;
       }
 
       &:hover svg path {
-        fill: #24A3FF; // Цвет при наведении
+        fill: $color-active;
       }
     }
 
-    &__phone {
-      &::before {
-        content: "•";
-        color: #B3B3BA;
-        margin-right: 6px;
+    &__main-row {
+      display: flex;
+      flex-direction: column; 
+      align-items: flex-start; 
+      justify-content: flex-start;
+      padding: 30px 0 0 0;
+      gap: 30px;
+    }
+
+    &__logo-block {
+      .header__logo svg {
+        height: 60px;
+      }
+      .header__slash,
+      .header__page-title {
+        font-family: $font-regular;
+        font-size: 36px;
+      }
+    }
+
+    &__nav {
+      display: block; 
+      width: 100%;
+    }
+
+    &__nav-list {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+
+    &__nav-link {
+      font-family: $font-bold;
+      display: inline-block;
+      text-decoration: none;
+      font-size: 16px;
+      color: $color-active;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.2s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color-accent;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      &:hover {
+        color: $color-accent;
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      &--active {
+        color: $color-accent;
+
+        &::after {
+          opacity: 1;
+        }
       }
     }
   }
+}
+
+@media (min-width: 1024px) {
+  
+ 
+  .header {
+    position: relative;
+    padding-top: 50px; 
+
+    &__inner {
+      display: grid; 
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto; 
+      align-items: center;
+      width: 100%;
+    }
+
+    &__top-panel {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end; 
+      background-color: transparent; 
+      margin: 0;
+      padding: 0 0 16px 0; 
+      gap: 0; 
+    }
+
+    &__main-row {
+      grid-column: 1 / 3; 
+      grid-row: 1 / 3;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; 
+      align-items: flex-end; 
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      pointer-events: none; 
+    }
+
+    &__logo-block {
+      pointer-events: auto; 
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+
+      .header__logo svg {
+        height: 60px; 
+        width: auto;
+        display: block;
+      }
+
+      .header__slash,
+      .header__page-title {
+        font-family: $font-regular;
+        font-size: 36px;
+        display: inline-block;
+      }
+    }
+
+    &__nav {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      justify-self: end; 
+      pointer-events: auto; 
+      display: block;
+      margin: 0;
+    }
+
+    &__nav-list {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end; 
+      gap: 15px; 
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    &__nav-link {
+      font-family: $font-bold;
+      color: $color-active; 
+      font-size: 16px;
+      text-transform: lowercase;
+      padding-bottom: 4px;
+      display: inline-block;
+      
+      &:hover {
+        color: $color-accent; 
+      }
+      
+      &--active {
+        color: $color-accent; 
+      }
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+
+        .header .container {
+        padding-left: 160px;
+        padding-right: 160px;
+        margin-top: 50px;
+    }
+      
+    
+}
+

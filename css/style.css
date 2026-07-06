@@ -1,24 +1,23 @@
 @charset "UTF-8";
 :root {
-  /* Main */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
   --color-main: #323264;
   --color-main-alt: #46467E;
   --color-main-soft: #666699;
-  /* Accent */
   --color-accent: #F0145A;
-  /* Active */
   --color-active: #24A3FF;
-  --color-active-hover: #0085FF;
-  --color-active-dark: #0066CC;
-  /* Grey */
   --color-grey-bg: #F5F5FA;
-  --color-grey-bg-alt: #EDEDF7;
   --color-grey-text: #B3B3BA;
   --color-grey-separator: #E6E6F0;
-  /* Градиенты */
   --gradient-main: linear-gradient(135deg, #323264 0%, #F0145A 100%);
-  /* ----- ШРИФТЫ (Fonts) ----- */
-  --font-main: 'Montserrat', sans-serif;
+  --gradient-soft: linear-gradient(135deg, #46467E 0%, #F0145A 100%);
+  --gradient-supersoft: linear-gradient(135deg, #323264 0%, #46467E 100%);
+  --gradient-red-text: linear-gradient(90deg, #F0145A 0%, #EF145A 100%);
+  --gradient-black-red: linear-gradient(135deg, #000000 0%, #F0145A 100%);
+  --font-regular: Montserrat Regular, sans-serif;
+  --font-medium: Montserrat Medium, sans-serif;
+  --font-bold: Montserrat Bold, sans-serif;
 }
 
 *, *::before, *::after {
@@ -51,35 +50,37 @@ button {
   font: inherit;
 }
 
-.container {
-  width: 100%;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 60px;
-}
-
 @font-face {
-  font-family: "Montserrat";
-  src: url("../../fonts/Montserrat-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "Montserrat Regular";
+  src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "Montserrat";
-  src: url("../../fonts/Montserrat-Bold.ttf") format("truetype");
-  font-weight: 700;
+  font-family: "Montserrat Medium";
+  src: url("../fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
-  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Bold";
+  src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 body {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-family: "Montserrat Regular", sans-serif;
   color: #323264;
   background-color: #F5F5FA;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* СТИЛИ ШАПКИ САЙТА (СТРОГО MOBILE-FIRST ПОД МАКЕТ) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat Bold", sans-serif;
+}
+
 .header {
   width: 100%;
   padding-top: 0;
@@ -90,28 +91,22 @@ body {
   display: flex;
   flex-direction: column;
 }
-.header {
-  /* Верхняя серая панель */
-}
 .header__top-panel {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #F5F5FA;
-  margin: 0 -30px; /* Идеально компенсирует боковые отступы контейнера в 30px */
   padding: 10px 30px;
 }
 .header__languages {
   display: flex;
-  gap: 6px;
 }
 .header__lang {
   background: transparent;
   border: none;
-  font-family: inherit;
   cursor: pointer;
   font-size: 12px;
-  font-weight: 700;
+  font-family: "Montserrat Bold", sans-serif;
   color: #B3B3BA;
   padding: 5px 7px;
   border-radius: 8px;
@@ -122,61 +117,53 @@ body {
   background: #F0145A;
   color: #FFFFFF;
 }
-.header__lang:focus {
-  outline: none;
+.header__top-info {
+  display: flex;
+  align-items: center;
 }
 .header__phone {
+  font-family: "Montserrat Bold", sans-serif;
   font-size: 12px;
-  font-weight: 700;
   color: #B3B3BA;
   text-decoration: none;
 }
-.header__address {
-  display: none; /* Скрыто на мобильном 375px по макету */
-}
-.header {
-  /* Нижний основной ряд */
+.header__address, .header__fb-link {
+  display: none;
 }
 .header__main-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0 30px;
+  padding: 15px 30px 30px;
 }
-.header .header__logo-block {
+.header__logo-block {
   display: flex;
-  align-items: center; /* Центрирует логотип, слэш и текст по одной горизонтальной оси */
+  align-items: center;
   gap: 4px;
 }
-.header .header__logo-block .header__logo {
-  display: inline-flex; /* Использовать inline-flex вместо inline, чтобы убрать скрытые нижние отступы картинок */
-  align-items: center;
-  flex-shrink: 0;
-}
-.header .header__logo-block .header__logo svg {
-  height: 32px; /* Точная высота из Фигмы */
+.header__logo-block .header__logo svg {
+  height: 32px;
   width: auto;
   display: block;
 }
-.header .header__logo-block .header__slash {
-  color: #f0145a;
+.header__logo-block .header__slash {
+  font-family: "Montserrat Regular", sans-serif;
+  color: #F0145A;
   font-size: 24px;
-  line-height: 1; /* Жестко сбрасываем высоту строки, чтобы слэш не улетал вверх */
+  line-height: 1;
   margin: 0 4px;
-  display: inline-block;
 }
-.header .header__logo-block .header__page-title {
+.header__logo-block .header__page-title {
+  font-family: "Montserrat Regular", sans-serif;
   font-size: 20px;
   color: #323264;
   text-transform: lowercase;
-  line-height: 1; /* Выравнивает текст по центру */
 }
-.header {
-  /* БУРГЕР И ЛОГИКА ОТКРЫТИЯ МЕНЮ */
+.header__nav {
+  display: none;
 }
 .header__burger-wrapper {
   display: block;
-  position: relative;
 }
 .header__burger-checkbox {
   position: absolute;
@@ -184,13 +171,9 @@ body {
   height: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
-  /* Открытие полноэкранного окна при клике */
 }
 .header__burger-checkbox:checked ~ .header__mobile-menu {
   display: block;
-}
-.header {
-  /* Кнопка три полоски (Прозрачная, серая при ховере) */
 }
 .header__burger {
   display: flex;
@@ -199,15 +182,10 @@ body {
   cursor: pointer;
   width: 32px;
   height: 32px;
-  background: transparent;
-  border-radius: 8px;
   transition: background-color 0.2s ease;
 }
 .header__burger:hover {
-  background-color: #E6E6F0; /* Цвет --Grey-Bg-Alt из Фигмы */
-}
-.header {
-  /* Полноэкранное мобильное меню (Сверху вниз, перекрывает контент) */
+  background-color: #E6E6F0;
 }
 .header__mobile-menu {
   display: none;
@@ -217,37 +195,25 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: rgba(50, 50, 100, 0.6);
-  z-index: 99999; /* Поверх абсолютно всего */
-}
-.header {
-  /* Белая плашка-контейнер для пунктов меню */
+  z-index: 99999;
 }
 .header__mobile-box {
   width: 100%;
   background: #FFFFFF;
-  border-radius: 0 0 12px 12px; /* Скругления углов снизу плашки */
-  padding: 64px 30px 24px 30px; /* Отступы по 30px слева и справа */
+  border-radius: 0 0 12px 12px;
+  padding: 64px 30px 24px 30px;
   position: relative;
-  box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
-}
-.header {
-  /* Крестик закрытия меню */
 }
 .header__mobile-close {
   cursor: pointer;
   position: absolute;
   top: 16px;
-  right: 16px; /* Фиксированное положение крестика */
+  right: 16px;
   width: 32px;
   height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
-}
-.header__mobile-close:hover {
-  background-color: #E6E6F0;
 }
 .header__mobile-list {
   list-style: none;
@@ -255,61 +221,65 @@ body {
   flex-direction: column;
   gap: 12px;
 }
-.header {
-  /* Кнопки-ссылки внутри меню */
-}
 .header__mobile-link {
+  font-family: "Montserrat Bold", sans-serif;
   display: block;
   text-align: center;
   text-decoration: none;
-  font-weight: 700;
   font-size: 24px;
-  line-height: 1.2;
   color: #24A3FF;
   background: #F5F5FA;
   padding: 12px 0;
   border-radius: 12px;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 .header__mobile-link:hover {
-  background: #E6E6F0;
-  color: #0085FF;
+  background-color: #F0145A;
+  color: #FFFFFF;
 }
 .header__mobile-link--active {
   color: #F0145A;
-  background: #F5F5FA;
-}
-.header__mobile-link--active:hover {
-  background: #E6E6F0;
-  color: #F0145A;
 }
 
-/* Базовые стили для мобильных (до 768px) */
-.header__address {
-  display: none;
-}
-.header__fb-link {
-  display: none;
-}
-.header__nav {
-  display: none;
-}
 @media (min-width: 768px) {
+  .header {
+    padding-top: 50px;
+  }
+  .header__burger-wrapper {
+    display: none;
+  }
   .header__top-panel {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    justify-content: flex-start;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
   }
   .header__address {
-    display: inline-block;
+    font-family: "Montserrat Regular", sans-serif;
+    display: inline-flex;
+    align-items: center;
     color: #B3B3BA;
     font-size: 16px;
-    font-weight: 400;
   }
   .header__address::before {
     content: "•";
+    margin: 0 6px;
+    font-family: "Montserrat Bold", sans-serif;
+  }
+  .header .container {
+    padding: 0 60px;
+  }
+  .header__phone {
+    font-family: "Montserrat Bold", sans-serif;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
     color: #B3B3BA;
-    margin-right: 6px;
+  }
+  .header__phone::before {
+    content: "•";
+    margin: 0 6px;
+    font-family: "Montserrat Bold", sans-serif;
   }
   .header__fb-link {
     display: inline-flex;
@@ -317,119 +287,364 @@ body {
   }
   .header__fb-link::before {
     content: "•";
+    margin: 0 6px;
+    font-family: "Montserrat Bold", sans-serif;
     color: #B3B3BA;
-    margin-right: 6px;
   }
   .header__fb-link svg path {
-    transition: fill 0.2s ease;
+    fill: #B3B3BA;
   }
   .header__fb-link:hover svg path {
     fill: #24A3FF;
   }
-  .header__phone::before {
-    content: "•";
-    color: #B3B3BA;
-    margin-right: 6px;
+  .header__main-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 30px 0 0 0;
+    gap: 30px;
+  }
+  .header__logo-block .header__logo svg {
+    height: 60px;
+  }
+  .header__logo-block .header__slash,
+  .header__logo-block .header__page-title {
+    font-family: "Montserrat Regular", sans-serif;
+    font-size: 36px;
+  }
+  .header__nav {
+    display: block;
+    width: 100%;
+  }
+  .header__nav-list {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+  }
+  .header__nav-link {
+    font-family: "Montserrat Bold", sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    color: #24A3FF;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.2s ease;
+  }
+  .header__nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #F0145A;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .header__nav-link:hover {
+    color: #F0145A;
+  }
+  .header__nav-link:hover::after {
+    opacity: 1;
+  }
+  .header__nav-link--active {
+    color: #F0145A;
+  }
+  .header__nav-link--active::after {
+    opacity: 1;
   }
 }
-
+@media (min-width: 1024px) {
+  .header {
+    position: relative;
+    padding-top: 50px;
+  }
+  .header__inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    width: 100%;
+  }
+  .header__top-panel {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: transparent;
+    margin: 0;
+    padding: 0 0 16px 0;
+    gap: 0;
+  }
+  .header__main-row {
+    grid-column: 1/3;
+    grid-row: 1/3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+  .header__logo-block {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  .header__logo-block .header__logo svg {
+    height: 60px;
+    width: auto;
+    display: block;
+  }
+  .header__logo-block .header__slash,
+  .header__logo-block .header__page-title {
+    font-family: "Montserrat Regular", sans-serif;
+    font-size: 36px;
+    display: inline-block;
+  }
+  .header__nav {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    justify-self: end;
+    pointer-events: auto;
+    display: block;
+    margin: 0;
+  }
+  .header__nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .header__nav-link {
+    font-family: "Montserrat Bold", sans-serif;
+    color: #24A3FF;
+    font-size: 16px;
+    text-transform: lowercase;
+    padding-bottom: 4px;
+    display: inline-block;
+  }
+  .header__nav-link:hover {
+    color: #F0145A;
+  }
+  .header__nav-link--active {
+    color: #F0145A;
+  }
+}
+@media (min-width: 1920px) {
+  .header .container {
+    padding-left: 160px;
+    padding-right: 160px;
+    margin-top: 50px;
+  }
+}
 .footer {
-  padding: 30px 0;
   background-color: #F5F5FA;
+  padding: 30px 0;
+  width: 100%;
   border-top: 2px solid #E6E6F0;
 }
-.footer__container {
-  max-width: 375px;
-  margin: 0 auto;
-  padding: 0 30px;
-  box-sizing: border-box;
+.footer__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: 30px;
+}
+.footer__row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 .footer__address {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Regular", sans-serif;
   font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-  color: #323264;
-  margin-bottom: 10px;
+  color: #46467E;
 }
 .footer__map-link {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Bold", sans-serif;
   font-size: 12px;
-  font-weight: 700;
   letter-spacing: 1px;
+  text-transform: uppercase;
   color: #24A3FF;
   text-decoration: none;
-  text-transform: uppercase;
-  margin-bottom: 21px;
 }
 .footer__map-link:hover {
   color: #0085FF;
 }
-.footer__social-link {
+.footer__social {
   display: inline-block;
-  margin-bottom: 10px;
-  transition: opacity 0.2s ease;
 }
-.footer__social-link:hover {
-  opacity: 0.8;
-}
-.footer__social-link svg {
+.footer__social svg, .footer__social img {
   display: block;
   width: 38px;
   height: 38px;
 }
 .footer__phone {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Bold", sans-serif;
   font-size: 16px;
-  font-weight: 700;
-  color: #46466E;
+  color: #323264;
   text-decoration: none;
-  margin-bottom: 10px;
-}
-.footer__phone:hover {
-  color: #24A3FF;
 }
 .footer__email {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Bold", sans-serif;
   font-size: 16px;
-  font-weight: 700;
   color: #24A3FF;
   text-decoration: none;
-  margin-bottom: 30px;
 }
 .footer__email:hover {
   text-decoration: underline;
 }
 .footer__copyright {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Regular", sans-serif;
   font-size: 16px;
-  font-weight: 400;
   color: #B3B3BA;
   margin: 0;
+  padding-top: 30px;
 }
 
-/* ==========================================================================
-   БЛОК С ЦИФРАМИ И ДОСТИЖЕНИЯМИ (ДО ФОТО)
-   ========================================================================== */
+@media (min-width: 768px) {
+  .footer {
+    padding: 30px 0;
+  }
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 21px;
+  }
+  .footer__row--top, .footer__row--middle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  .footer__social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__map-link::before {
+    content: "•";
+    margin-right: 10px;
+    margin-left: 2px;
+    color: #B3B3BA;
+    font-size: 16px;
+    display: inline-block;
+  }
+  .footer__social + .footer__phone::before {
+    content: "•";
+    margin-right: 10px;
+    color: #B3B3BA;
+    font-size: 16px;
+    display: inline-block;
+  }
+  .footer__phone + .footer__email::before, .footer__phone + a::before {
+    content: "•";
+    margin-right: 10px;
+    color: #B3B3BA;
+    font-size: 16px;
+    display: inline-block;
+  }
+  .footer__copyright {
+    text-align: center;
+  }
+}
+@media (min-width: 1024px) {
+  .footer {
+    padding: 30px 60px;
+  }
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 21px;
+    text-align: left;
+  }
+  .footer__row--top, .footer__row--middle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer__map-link::before {
+    content: "•";
+    margin-right: 10px;
+    color: #B3B3BA;
+    font-size: 16px;
+    display: inline-block;
+  }
+  .footer__copyright {
+    position: static;
+    text-align: right;
+    white-space: nowrap;
+    padding-top: 0;
+    margin: 0;
+  }
+  .footer__social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__social + .footer__phone::before {
+    content: "•";
+    margin-right: 10px;
+    color: #B3B3BA;
+    font-size: 16px;
+    display: inline-block;
+  }
+  .footer__phone + .footer__email::before, .footer__phone + a::before {
+    content: "•";
+    margin-right: 10px;
+    color: #B3B3BA;
+    font-size: 16px;
+    display: inline-block;
+  }
+}
+@media (min-width: 1920px) {
+  .footer {
+    padding: 30px 160px;
+  }
+}
 .about-intro {
   width: 100%;
 }
 .about-intro__title {
+  font-family: "Montserrat Bold", sans-serif;
   font-size: 30px;
-  font-weight: 700;
   line-height: 30px;
   color: #F0145A;
   margin-bottom: 28px;
 }
 .about-intro__description {
+  font-family: "Montserrat Regular", sans-serif;
   font-size: 19px;
-  font-weight: 400;
   line-height: 30px;
   color: #000000;
+  margin-bottom: 20px;
+}
+.about-intro__description:last-child {
+  margin-bottom: 0;
 }
 
 .about-numbers {
@@ -466,16 +681,14 @@ body {
   display: block;
 }
 .about-numbers__value {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Bold", sans-serif;
   font-size: 36px;
-  font-weight: 700;
   line-height: 1;
   color: #F0145A;
 }
 .about-numbers__text {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Regular", sans-serif;
   font-size: 16px;
-  font-weight: 400;
   line-height: 1.35;
   color: #323264;
 }
@@ -499,9 +712,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Bold", sans-serif;
   font-size: 36px;
-  font-weight: 700;
   color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 13px;
@@ -510,7 +722,7 @@ body {
   text-align: center;
   white-space: nowrap;
   opacity: 0.8;
-  text-shadow: 0px 15px 30px rgba(40, 40, 86, 0.8);
+  text-shadow: 0px 15px 30px rgba(50, 50, 100, 0.8);
 }
 
 .main-content__container {
@@ -527,9 +739,8 @@ body {
   margin-top: 30px;
 }
 .about-more__paragraph {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Regular", sans-serif;
   font-size: 19px;
-  font-weight: 400;
   line-height: 30px;
   color: #000000;
   margin-bottom: 30px;
@@ -538,36 +749,39 @@ body {
   margin-bottom: 0;
 }
 .about-more__quote {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Bold", sans-serif;
   font-size: 30px;
-  font-weight: 700;
   line-height: 1.2;
   color: #F0145A;
+  margin-top: 30px;
 }
 
 .achievements {
   width: 100%;
+  background-color: #F5F5FA;
+  padding: 30px 0;
+  margin-top: 30px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F5F5FA;
-  padding: 30px 0;
-  margin-top: 60px;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
 }
 .achievements__title {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Bold", sans-serif;
   font-size: 14px;
-  font-weight: 700;
   letter-spacing: 1px;
-  color: var(--Main-Regular, #323264);
+  color: #323264;
   text-transform: uppercase;
   margin: 0 0 30px 0;
   text-align: center;
 }
 .achievements__slider {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.achievements__card {
   width: 255px;
   height: 110px;
   background-color: #FFFFFF;
@@ -576,17 +790,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
   box-sizing: border-box;
+  padding: 20px;
 }
-.achievements__logo {
-  width: 53.33px !important;
-  height: 40px !important;
-  display: block;
-  flex-shrink: 0;
-}
-.achievements {
-  /* Пагинация (Ровно 5 кружков под карточкой) */
+.achievements__card:not(:first-child) {
+  display: none;
 }
 .achievements__dots {
   display: flex;
@@ -601,18 +809,546 @@ body {
   background-color: #24A3FF;
   opacity: 0.2;
   cursor: pointer;
-  transition: opacity 0.2s ease-in-out;
-}
-.achievements__dot:hover {
-  opacity: 1;
+  border: none;
 }
 .achievements__dot--active {
   opacity: 1;
-  cursor: default;
-  pointer-events: none;
 }
 
-/* Полный сброс стилей */
+@media (min-width: 768px) {
+  .about-team-banner {
+    margin-left: -60px;
+    margin-right: -60px;
+  }
+  .about-team-banner__title {
+    font-size: clamp(46px, 8.5vw, 86px);
+    letter-spacing: clamp(15px, 6vw, 63px);
+  }
+  .about-more {
+    margin-top: 60px;
+  }
+  .about-more__quote {
+    font-size: 36px;
+    margin-bottom: 60px;
+  }
+  .about-numbers {
+    margin-bottom: 60px;
+  }
+  .achievements {
+    padding: 30px 0;
+    margin-top: 0;
+  }
+  .achievements__title {
+    margin-bottom: 30px;
+  }
+  .achievements__slider {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 60px;
+    margin-bottom: 40px;
+  }
+  .achievements__card {
+    width: 100%;
+    height: 130px;
+  }
+  .achievements__card:not(:first-child) {
+    display: flex;
+  }
+  .achievements__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  .achievements__dot:nth-child(n+4) {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 410px;
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 60px;
+  }
+  .about-intro {
+    width: auto;
+  }
+  .about-intro__title {
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 28px;
+  }
+  .about-intro__description {
+    font-size: 19px;
+    line-height: 30px;
+  }
+  .about-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    margin: 0;
+    padding-left: 30px;
+    border-left: 4px solid #E6E6F0;
+  }
+  .about-numbers__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .about-numbers__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .about-numbers__value {
+    font-size: 38px;
+    line-height: 1;
+  }
+  .about-numbers__text {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+  .achievements {
+    padding: 0;
+    margin-top: 0;
+  }
+  .achievements .main-content__container {
+    margin: 0;
+    padding-bottom: 30px;
+  }
+  .achievements__title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .about-more {
+    display: grid;
+    grid-template-columns: 1fr 362px;
+    gap: 60px;
+    margin-top: 60px;
+    align-items: start;
+  }
+  .about-more__quote {
+    font-size: 38px;
+    margin-top: 0;
+  }
+}
+@media (min-width: 1440px) {
+  .main-content__container {
+    margin: 60px 180px;
+    padding: 0;
+  }
+  .about-team-banner {
+    margin-left: -180px;
+    margin-right: -180px;
+  }
+  .achievements .main-content__container {
+    max-width: none;
+    width: calc(100% - 120px);
+    margin-left: 60px;
+    margin-right: 60px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .achievements__slider {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .achievements__card {
+    height: 110px;
+    padding: 30px 70px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .achievements__card img, .achievements__card svg {
+    max-width: 100%;
+    max-height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+@media (min-width: 1920px) {
+  .main-content__container {
+    margin: 60px 280px;
+    padding: 0;
+  }
+  .about-team-banner {
+    margin-left: -280px;
+    margin-right: -280px;
+  }
+  .achievements .main-content__container {
+    max-width: none;
+    width: calc(100% - 320px);
+    margin-left: 160px;
+    margin-right: 160px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .achievements__slider {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .achievements__card {
+    height: 110px;
+    padding: 25px 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .achievements__card img, .achievements__card svg {
+    max-width: 100%;
+    max-height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+.team-intro {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.team-intro__title {
+  font-family: var(--font-bold);
+  font-size: 38px;
+  line-height: 1.2;
+  margin: 0;
+  background: linear-gradient(90deg, #F0145A 0%, #EF145A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  word-wrap: break-word;
+}
+
+.team-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+}
+.team-card__photo {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.team-card__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.team-card__info-link {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-decoration: none;
+  width: 100%;
+  cursor: pointer;
+}
+.team-card__info-link:hover .team-card__name {
+  color: #F0145A;
+}
+.team-card__info-link:hover .team-card__arrow--default {
+  display: none;
+}
+.team-card__info-link:hover .team-card__arrow--hover {
+  display: block;
+}
+.team-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 15px;
+}
+.team-card__name {
+  font-family: "Montserrat Bold", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #24A3FF;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+.team-card__position {
+  font-family: "Montserrat Regular", sans-serif;
+  font-size: 14px;
+  color: #B3B3BA;
+  margin: 0;
+}
+.team-card__arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  margin-top: -3px;
+}
+.team-card__arrow {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.team-card__arrow--default {
+  display: block;
+}
+.team-card__arrow--hover {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .team-intro {
+    margin-top: 60px;
+  }
+  .team-intro__title {
+    font-size: 38px;
+    max-width: 700px;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}
+@media (min-width: 1024px) {
+  .team-intro__title {
+    font-size: 38px;
+    line-height: 1.3;
+    max-width: 100%;
+    padding: 0 120px;
+  }
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 40px;
+  }
+}
+@media (min-width: 1440px) {
+  .team-intro__title {
+    font-size: 38px;
+  }
+  .main-content__container {
+    margin: 60px 160px;
+    padding: 0;
+  }
+}
+.contact-page {
+  padding: 30px 0;
+  background-color: #FFFFFF;
+}
+.contact-page .container {
+  padding: 0 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.contact-page__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+.contact-page__info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.contact-page__block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-bottom: 4px solid #E6E6F0;
+  padding-bottom: 30px;
+}
+.contact-page__block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.contact-page__address, .contact-page__phone, .contact-page__email {
+  font-family: "Montserrat Regular", sans-serif;
+  font-size: 21px;
+  line-height: 30px;
+  color: #323264;
+  text-decoration: none;
+}
+.contact-page__phone {
+  font-family: "Montserrat Bold", sans-serif;
+}
+.contact-page__email {
+  color: #24A3FF;
+}
+.contact-page__fb-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.contact-page__fb-link:hover .contact-page__fb-icon path {
+  fill: #F0145A;
+}
+.contact-page__fb-link:hover .contact-page__fb-text {
+  color: #F0145A;
+}
+.contact-page__fb-icon {
+  display: block;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+.contact-page__fb-icon path {
+  fill: #24A3FF;
+  transition: fill 0.2s ease;
+}
+.contact-page__fb-text {
+  display: block;
+  font-family: "Montserrat Bold", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #24A3FF;
+}
+.contact-page__form-wrapper {
+  background: #F5F5FA;
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.contact-page__title {
+  font-family: "Montserrat Bold", sans-serif;
+  font-size: 30px;
+  line-height: 37px;
+  color: #F0145A;
+  margin-bottom: 30px;
+}
+.contact-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.contact-page__input, .contact-page__textarea {
+  width: 100%;
+  font-family: "Montserrat Regular", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  padding: 15px;
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 8px;
+  color: #323264;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+.contact-page__input::-moz-placeholder, .contact-page__textarea::-moz-placeholder {
+  color: #B3B3BA;
+}
+.contact-page__input::placeholder, .contact-page__textarea::placeholder {
+  color: #B3B3BA;
+}
+.contact-page__input:focus, .contact-page__textarea:focus {
+  border-color: #24A3FF;
+}
+.contact-page__textarea {
+  height: 130px;
+  resize: none;
+}
+.contact-page__group-title {
+  font-family: "Montserrat Bold", sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #B3B3BA;
+  margin-top: -15px;
+  margin-bottom: -15px;
+}
+.contact-page__submit-btn {
+  width: 100%;
+  font-family: "Montserrat Bold", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #24A3FF;
+  padding: 18px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px rgba(36, 163, 255, 0.5);
+  transition: background-color 0.2s ease;
+}
+.contact-page__submit-btn:hover {
+  background-color: #0085FF;
+}
+
+@media (min-width: 768px) {
+  .contact-page {
+    padding: 60px 0;
+  }
+  .contact-page .container {
+    padding: 0 60px;
+  }
+  .contact-page__inner {
+    gap: 60px;
+  }
+}
+@media (min-width: 1024px) {
+  .contact-page .container {
+    max-width: 100%;
+    padding: 0 60px;
+  }
+  .contact-page__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+  }
+  .contact-page__info {
+    flex: 0 0 calc(50% - 30px);
+    width: calc(50% - 30px);
+  }
+  .contact-page__form-wrapper {
+    flex: 0 0 calc(50% - 30px);
+    width: calc(50% - 30px);
+    max-width: 650px;
+  }
+}
+@media (min-width: 1440px) {
+  .contact-page .container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+@media (min-width: 1920px) {
+  .contact-page .container {
+    max-width: 1360px;
+  }
+}
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -620,17 +1356,13 @@ body {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  background-color: #FFFFFF;
+  font-family: "Montserrat Regular", sans-serif;
   color: #323264;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
+  background-color: #FFFFFF;
 }
 
-/* Ограничивающий контейнер под 375px с твоими отступами */
-.container {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 30px; /* ИСПРАВЛЕНО: падинг по бокам теперь 30px */
+p {
+  font-family: "Montserrat Regular", sans-serif;
 }/*# sourceMappingURL=style.css.map */
