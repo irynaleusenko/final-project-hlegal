@@ -4,6 +4,13 @@
   width: 100%;
   border-top: 2px solid $color-grey-separator;
 
+  // Стили для внутреннего контейнера футера
+  &__container {
+    position: relative;
+
+  }
+
+
   &__content {
     display: flex;
     flex-direction: column;
@@ -207,3 +214,5 @@
     padding: 30px 160px;
  }
 }
+
+
