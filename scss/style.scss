@@ -4,11 +4,12 @@
 
 
 @import "components/header";
-@import "components/buttons";
 @import "components/footer";
 @import "components/about"; 
 @import "components/team"; 
 @import "components/contact"; 
+@import "components/services";
+@import "components/publications";
 
 
 *, *::before, *::after {

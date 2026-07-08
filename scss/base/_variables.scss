@@ -18,6 +18,9 @@ $color-grey-bg-alt:#EDEDF7;
 $color-grey-text:#B3B3BA;
 $color-grey-separator:#E6E6F0;
 
+$color-before: #CACADB;
+$color-after:#E7E7F2;
+
 
 $font-regular:'Montserrat Regular', sans-serif;
 $font-medium:'Montserrat Medium', sans-serif;
@@ -28,14 +31,28 @@ $gradient-main: linear-gradient(135deg, #323264 0%, #F0145A 100%);
 
 $gradient-soft: linear-gradient(135deg, #46467E 0%, #F0145A 100%);
 
-$gradient-supersoft: linear-gradient(135deg, #323264 0%, #46467E 100%);
+$gradient-supersoft: linear-gradient(229deg, #323264 11.93%, #323264 57.17%, #643E72 87.46%);
 
 $gradient-red-text: linear-gradient(90deg, #F0145A 0%, #EF145A 100%);
 
 $gradient-black-red: linear-gradient(135deg, $color-black 0%, $color-accent 100%);
 
 
+$color-brand-hillel:       #1C4280;
+$color-brand-wannabiz:     #143646;
+$color-brand-tapgerine:    #F48B30;
+$color-brand-3dlook:       #9E4DC3;
+$color-brand-orangear:     #FD9339;
+$color-brand-adtelligent:  #E2E2E4;
+$color-brand-clickky:      #C71C36;
+$color-brand-ecoleasing:   #DCF3F9;
+$color-brand-infratek:     #EAEAEA;
+$color-brand-citypar:      #282240;
+$color-brand-artprint:     #1D4568;
+$color-brand-ultimatecard: #000000;
+
 :root {
+ 
   --color-white: #{$color-white};
   --color-black: #{$color-black};
   --color-main: #{$color-main};
@@ -46,12 +63,35 @@ $gradient-black-red: linear-gradient(135deg, $color-black 0%, $color-accent 100%
   --color-grey-bg: #{$color-grey-bg};
   --color-grey-text: #{$color-grey-text};
   --color-grey-separator: #{$color-grey-separator};
-  --gradient-main: #{$gradient-main};
-  --gradient-soft: #{$gradient-soft};
-  --gradient-supersoft: #{$gradient-supersoft};
-  --gradient-red-text: #{$gradient-red-text};
-  --gradient-black-red: #{$gradient-black-red};
-  --font-regular: #{$font-regular};
-  --font-medium: #{$font-medium};
-  --font-bold: #{$font-bold};
+
+ 
+ --color-brand-hillel: #{$color-brand-hillel};
+  --color-brand-wannabiz: #{$color-brand-wannabiz};
+  --color-brand-tapgerine: #{$color-brand-tapgerine};
+  --color-brand-3dlook: #{$color-brand-3dlook};
+  --color-brand-orangear: #{$color-brand-orangear};
+  --color-brand-adtelligent: #{$color-brand-adtelligent};
+  --color-brand-clickky: #{$color-brand-clickky};
+  --color-brand-ecoleasing: #{$color-brand-ecoleasing};
+  --color-brand-infratek: #{$color-brand-infratek};
+  --color-brand-citypar: #{$color-brand-citypar};
+  --color-brand-artprint: #{$color-brand-artprint};
+  --color-brand-ultimatecard: #{$color-brand-ultimatecard};
+
+ --color-before: #{$color-before};
+--color-after: #{$color-after};
+
+  
+:root {
+
+  --gradient-main: linear-gradient(135deg, #323264 0%, #F0145A 100%);
+  --gradient-soft: linear-gradient(135deg, #46467E 0%, #F0145A 100%);
+
+  --Gradient-supersoft: linear-gradient(229deg, #323264 11.93%, #323264 57.17%, #643E72 87.46%);
+  
+  --gradient-red-text: linear-gradient(90deg, #F0145A 0%, #EF145A 100%);
+  --gradient-black-red: linear-gradient(135deg, #000000 0%, #F0145A 100%);
+}
+
+
 }
