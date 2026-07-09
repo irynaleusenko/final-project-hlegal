@@ -211,6 +211,9 @@
 }
 
 @media (min-width: 768px) {
+    .main-content__container {
+    margin-top: 30px;
+  }
   
   .about-team-banner {
     margin-left: -60px;
@@ -301,6 +304,9 @@
       line-height: 30px;
     }
   }
+  .main-content__container {
+    margin-top: 60px;
+  }
 
   .about-numbers {
     display: flex;
@@ -342,6 +348,7 @@
     .main-content__container {
       margin: 0;
       padding-bottom: 30px;
+    
     }
   }
 
